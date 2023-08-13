@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
+#define PREVENT_STUCK_MODIFIERS
 // Set the mouse settings to a comfortable speed/accuracy trade-off,
 // assuming a screen refresh rate of 60 Htz or higher
 // The default is 50. This makes the mouse ~3 times faster and more accurate
