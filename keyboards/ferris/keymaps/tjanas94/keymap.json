@@ -38,7 +38,7 @@
          "KC_QUOT"      , "KC_DQUO"               , "KC_BSLS"                        , "KC_PIPE"      , "KC_AMPR",
          "KC_TILD"      , "KC_RPRN"               , "KC_RCBR"                        , "KC_RBRC"      , "KC_UNDS",
 
-         "KC_SPC"       , "MO(5)",
+         "KC_LCTL"      , "MO(5)",
          "KC_NO"        , "KC_NO"
         ],
         ["KC_ESC"       , "OSM(MOD_LALT|MOD_LGUI)", "OSM(MOD_LSFT|MOD_LALT|MOD_LGUI)", "OSM(MOD_HYPR)", "KC_NUM",
