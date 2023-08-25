@@ -5,77 +5,77 @@
     "keymap": "tjanas94",
     "layout": "LAYOUT_split_3x5_2",
     "layers": [
-        ["KC_Q"         , "KC_W"                  , "KC_F"                           , "KC_P"         , "KC_B",
-         "KC_J"         , "KC_L"                  , "KC_U"                           , "KC_Y"         , "KC_QUOT",
+        ["KC_Q"        , "KC_W"         , "KC_F"         , "KC_P"          , "KC_B",
+         "KC_J"        , "KC_L"         , "KC_U"         , "KC_Y"          , "KC_QUOT",
 
-         "KC_A"         , "KC_R"                  , "KC_S"                           , "KC_T"         , "KC_G",
-         "KC_M"         , "KC_N"                  , "KC_E"                           , "KC_I"         , "KC_O",
+         "LGUI_T(KC_A)", "LALT_T(KC_R)" , "LSFT_T(KC_S)" , "LCTL_T(KC_T)"  , "KC_G",
+         "KC_M"        , "LCTL_T(KC_N)" , "LSFT_T(KC_E)" , "LALT_T(KC_I)"  , "LGUI_T(KC_O)",
 
-         "KC_Z"         , "KC_X"                  , "KC_C"                           , "KC_D"         , "KC_V",
-         "KC_K"         , "KC_H"                  , "KC_COMM"                        , "KC_DOT"       , "KC_SLSH",
+         "KC_Z"        , "RALT_T(KC_X)" , "KC_C"         , "KC_D"          , "KC_V",
+         "KC_K"        , "KC_H"         , "KC_COMM"      , "RALT_T(KC_DOT)", "KC_SLSH",
 
-         "LT(3,KC_SPC)" , "MO(4)",
-         "MO(2)"        , "KC_LSFT"
+         "LT(3,KC_TAB)", "LT(1,KC_SPC)",
+         "LT(2,KC_ESC)", "LT(4,KC_ENT)"
         ],
-        ["KC_Q"         , "KC_W"                  , "KC_E"                           , "KC_R"         , "KC_T",
-         "KC_Y"         , "KC_U"                  , "KC_I"                           , "KC_O"         , "KC_P",
+        ["KC_NO"       , "LALT(KC_LEFT)", "LALT(KC_RGHT)", "KC_NO"         , "KC_NO",
+         "KC_HOME"     , "KC_PGDN"      , "KC_PGUP"      , "KC_END"        , "KC_CAPS",
 
-         "KC_A"         , "KC_S"                  , "KC_D"                           , "KC_F"         , "KC_G",
-         "KC_H"         , "KC_J"                  , "KC_K"                           , "KC_L"         , "KC_QUOT",
+         "KC_LGUI"     , "KC_LALT"      , "KC_LSFT"      , "KC_LCTL"       , "CW_TOGG",
+         "KC_LEFT"     , "KC_DOWN"      , "KC_UP"        , "KC_RGHT"       , "KC_INS",
 
-         "KC_Z"         , "KC_X"                  , "KC_C"                           , "KC_V"         , "KC_B",
-         "KC_N"         , "KC_M"                  , "KC_COMM"                        , "KC_DOT"       , "KC_SLSH",
+         "LCTL(KC_Z)"  , "LCTL(KC_X)"   , "LCTL(KC_C)"   , "LCTL(KC_A)"    , "LCTL(KC_V)",
+         "KC_H"        , "KC_J"         , "KC_K"         , "KC_L"          , "KC_APP",
 
-         "LT(3,KC_SPC)" , "MO(4)",
-         "MO(2)"        , "KC_LSFT"
+         "KC_NO"       , "KC_NO",
+         "KC_BSPC"     , "KC_DEL"
         ],
-        ["KC_EXLM"      , "KC_AT"                 , "KC_HASH"                        , "KC_DLR"       , "KC_PERC",
-         "KC_EQL"       , "KC_GRV"                , "KC_COLN"                        , "KC_SCLN"      , "KC_PLUS",
+        ["KC_PLUS"     , "KC_9"         , "KC_8"         , "KC_7"          , "KC_EQL",
+         "KC_NUM"      , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
-         "OSM(MOD_LALT)", "OSM(MOD_LGUI)"         , "OSM(MOD_LSFT)"                  , "OSM(MOD_LCTL)", "KC_CIRC",
-         "KC_ASTR"      , "KC_LPRN"               , "KC_LCBR"                        , "KC_LBRC"      , "KC_MINS",
+         "KC_MINS"     , "KC_6"         , "KC_5"         , "KC_4"          , "KC_ASTR",
+         "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
-         "KC_QUOT"      , "KC_DQUO"               , "KC_BSLS"                        , "KC_PIPE"      , "KC_AMPR",
-         "KC_TILD"      , "KC_RPRN"               , "KC_RCBR"                        , "KC_RBRC"      , "KC_UNDS",
+         "KC_UNDS"     , "KC_3"         , "KC_2"         , "KC_1"          , "KC_SLSH",
+         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
-         "KC_LCTL"      , "MO(5)",
-         "KC_NO"        , "KC_NO"
+         "KC_DOT"      , "KC_0",
+         "KC_NO"       , "KC_NO"
         ],
-        ["KC_ESC"       , "OSM(MOD_LALT|MOD_LGUI)", "OSM(MOD_LSFT|MOD_LALT|MOD_LGUI)", "OSM(MOD_HYPR)", "KC_NUM",
-         "KC_EQL"       , "KC_7"                  , "KC_8"                           , "KC_9"         , "KC_PLUS",
+        ["KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+         "KC_NO"       , "KC_NO"        , "KC_COLN"      , "KC_SCLN"       , "KC_NO",
 
-         "OSM(MOD_LALT)", "OSM(MOD_LGUI)"         , "OSM(MOD_LSFT)"                  , "OSM(MOD_LCTL)", "OSM(MOD_RALT)",
-         "KC_ASTR"      , "KC_4"                  , "KC_5"                           , "KC_6"         , "KC_MINS",
+         "KC_LGUI"     , "KC_LALT"      , "KC_LSFT"      , "KC_LCTL"       , "KC_NO",
+         "KC_NO"       , "KC_LPRN"      , "KC_LCBR"      , "KC_LBRC"       , "KC_LT",
 
-         "CW_TOGG"      , "KC_APP"                , "KC_TAB"                         , "KC_BSPC"      , "KC_ENT",
-         "KC_NO"        , "KC_1"                  , "KC_2"                           , "KC_3"         , "KC_SLSH",
+         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+         "KC_NO"       , "KC_RPRN"      , "KC_RCBR"      , "KC_RBRC"       , "KC_GT",
 
-         "KC_NO"        , "KC_NO",
-         "KC_DOT"       , "KC_0"
+         "KC_NO"       , "KC_NO",
+         "KC_NO"       , "MO(5)"
         ],
-        ["KC_ESC"       , "OSM(MOD_LALT|MOD_LGUI)", "OSM(MOD_LSFT|MOD_LALT|MOD_LGUI)", "OSM(MOD_HYPR)", "KC_INS",
-         "KC_PGUP"      , "KC_HOME"               , "KC_UP"                          , "KC_END"       , "KC_CAPS",
+        ["KC_NO"       , "KC_BSLS"      , "KC_PIPE"      , "KC_AMPR"       , "KC_NO",
+         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
-         "OSM(MOD_LALT)", "OSM(MOD_LGUI)"         , "OSM(MOD_LSFT)"                  , "OSM(MOD_LCTL)", "OSM(MOD_RALT)",
-         "KC_PGDN"      , "KC_LEFT"               , "KC_DOWN"                        , "KC_RGHT"      , "KC_DEL",
+         "KC_TILD"     , "KC_CIRC"      , "KC_PERC"      , "KC_DLR"        , "KC_NO",
+         "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
-         "LCTL(KC_Z)"   , "LCTL(KC_X)"            , "LCTL(KC_C)"                     , "KC_LGUI"      , "LCTL(KC_V)",
-         "KC_NO"        , "KC_BSPC"               , "KC_TAB"                         , "KC_APP"       , "KC_PSCR",
+         "KC_GRV"      , "KC_HASH"      , "KC_AT"        , "KC_EXLM"       , "KC_NO",
+         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
-         "KC_NO"        , "KC_NO",
-         "MO(5)"        , "KC_ENT"
+         "MO(5)"       , "KC_NO",
+         "KC_NO"       , "KC_NO"
         ],
-        ["KC_MSTP"      , "KC_MPRV"               , "KC_MPLY"                        , "KC_MNXT"      , "KC_BRIU",
-         "KC_F12"       , "KC_F7"                 , "KC_F8"                          , "KC_F9"        , "KC_SCRL",
+        ["KC_F12"      , "KC_F9"        , "KC_F8"        , "KC_F7"         , "KC_SCRL",
+         "KC_NO"       , "KC_MSTP"      , "KC_MPLY"      , "KC_MUTE"       , "KC_NO",
 
-         "OSM(MOD_LALT)", "OSM(MOD_LGUI)"         , "OSM(MOD_LSFT)"                  , "OSM(MOD_LCTL)", "KC_BRID",
-         "KC_F11"       , "KC_F4"                 , "KC_F5"                          , "KC_F6"        , "DF(0)",
+         "KC_F11"      , "KC_F6"        , "KC_F5"        , "KC_F4"         , "KC_PSCR",
+         "KC_BRIU"     , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
-         "KC_MUTE"      , "KC_VOLD"               , "RCS(KC_C)"                      , "KC_VOLU"      , "RCS(KC_V)",
-         "KC_F10"       , "KC_F1"                 , "KC_F2"                          , "KC_F3"        , "DF(1)",
+         "KC_F10"      , "KC_F3"        , "KC_F2"        , "KC_F1"         , "KC_PAUS",
+         "KC_BRID"     , "KC_MPRV"      , "KC_VOLD"      , "KC_VOLU"       , "KC_MNXT",
 
-         "KC_NO"        , "KC_NO",
-         "KC_NO"        , "KC_NO"
+         "KC_NO"       , "KC_NO",
+         "KC_NO"       , "KC_NO"
         ]
     ],
     "author": ""
