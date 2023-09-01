@@ -42,7 +42,7 @@
          "KC_NO"       , "KC_NO"
         ],
         ["KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
-         "KC_NO"       , "KC_NO"        , "KC_COLN"      , "KC_SCLN"       , "KC_NO",
+         "KC_NO"       , "KC_COMM"      , "KC_COLN"      , "KC_SCLN"       , "KC_NO",
 
          "KC_LGUI"     , "KC_LALT"      , "KC_LSFT"      , "KC_LCTL"       , "KC_NO",
          "KC_NO"       , "KC_LPRN"      , "KC_LCBR"      , "KC_LBRC"       , "KC_LT",
