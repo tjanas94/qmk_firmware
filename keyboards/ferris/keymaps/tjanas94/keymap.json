@@ -29,13 +29,13 @@
          "KC_NO"       , "KC_NO",
          "KC_BSPC"     , "KC_DEL"
         ],
-        ["KC_PLUS"     , "KC_9"         , "KC_8"         , "KC_7"          , "KC_EQL",
+        ["KC_UNDS"     , "KC_9"         , "KC_8"         , "KC_7"          , "KC_EQL",
          "KC_NUM"      , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
          "KC_MINS"     , "KC_6"         , "KC_5"         , "KC_4"          , "KC_ASTR",
          "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
-         "KC_UNDS"     , "KC_3"         , "KC_2"         , "KC_1"          , "KC_SLSH",
+         "KC_PLUS"     , "KC_3"         , "KC_2"         , "KC_1"          , "KC_SLSH",
          "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
          "KC_DOT"      , "KC_0",
