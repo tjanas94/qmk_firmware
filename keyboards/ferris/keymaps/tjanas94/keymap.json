@@ -36,7 +36,7 @@
          "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
          "KC_PLUS"     , "KC_3"         , "KC_2"         , "KC_1"          , "KC_SLSH",
-         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+         "KC_H"        , "KC_J"         , "KC_K"         , "KC_L"          , "KC_NO",
 
          "KC_DOT"      , "KC_0",
          "KC_NO"       , "KC_NO"
@@ -56,7 +56,7 @@
         ["KC_NO"       , "KC_BSLS"      , "KC_PIPE"      , "KC_AMPR"       , "KC_NO",
          "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
 
-         "KC_TILD"     , "KC_CIRC"      , "KC_PERC"      , "KC_DLR"        , "KC_NO",
+         "KC_TILD"     , "KC_CIRC"      , "KC_PERC"      , "KC_DLR"        , "KC_ASTR",
          "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
          "KC_GRV"      , "KC_HASH"      , "KC_AT"        , "KC_EXLM"       , "KC_NO",
