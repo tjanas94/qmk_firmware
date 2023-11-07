@@ -41,13 +41,13 @@
          "KC_DOT"      , "KC_0",
          "KC_NO"       , "KC_NO"
         ],
-        ["KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+        ["KC_MS_L"     , "KC_MS_D"      , "KC_MS_U"      , "KC_MS_R"       , "KC_BTN3",
          "KC_NO"       , "KC_COMM"      , "KC_COLN"      , "KC_SCLN"       , "KC_DQUO",
 
-         "KC_LGUI"     , "KC_LALT"      , "KC_LSFT"      , "KC_LCTL"       , "KC_NO",
+         "KC_LGUI"     , "KC_LALT"      , "KC_LSFT"      , "KC_LCTL"       , "KC_BTN1",
          "KC_NO"       , "KC_LPRN"      , "KC_LCBR"      , "KC_LBRC"       , "KC_LT",
 
-         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+         "KC_WH_L"     , "KC_WH_D"      , "KC_WH_U"      , "KC_WH_R"       , "KC_BTN2",
          "KC_NO"       , "KC_RPRN"      , "KC_RCBR"      , "KC_RBRC"       , "KC_GT",
 
          "KC_NO"       , "KC_NO",
