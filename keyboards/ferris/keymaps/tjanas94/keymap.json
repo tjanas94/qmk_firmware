@@ -60,7 +60,7 @@
          "KC_NO"       , "KC_LCTL"      , "KC_LSFT"      , "KC_LALT"       , "KC_LGUI",
 
          "KC_GRV"      , "KC_HASH"      , "KC_AT"        , "KC_EXLM"       , "KC_SLSH",
-         "KC_NO"       , "KC_NO"        , "KC_NO"        , "KC_NO"         , "KC_NO",
+         "KC_NO"       , "ANY(DT_PRNT)" , "ANY(DT_DOWN)" , "ANY(DT_UP)"    , "KC_NO",
 
          "MO(5)"       , "KC_NO",
          "KC_NO"       , "KC_NO"
