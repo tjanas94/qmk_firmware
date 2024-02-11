@@ -23,11 +23,11 @@ enum layers {
 #define KC_ALTX RALT_T(KC_X)
 #define KC_ALTD RALT_T(KC_DOT)
 
-#define KC_1SPC LT(1,KC_SPC)
-#define KC_2ESC LT(2,KC_ESC)
-#define KC_3TAB LT(3,KC_TAB)
-#define KC_4ENT LT(4,KC_ENT)
-#define KC_5MO MO(5)
+#define KC_LSPC LT(_NAV, KC_SPC)
+#define KC_LESC LT(_NUM, KC_ESC)
+#define KC_LTAB LT(_PAR, KC_TAB)
+#define KC_LENT LT(_SYM, KC_ENT)
+#define KC_FUNC MO(_FUNC)
 
 #define KC_BACK LALT(KC_LEFT)
 #define KC_FRWD LALT(KC_RGHT)
@@ -39,6 +39,16 @@ enum layers {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case KC_ALTX:
+        case KC_ALTD:
+            return 135;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
         case KC_GUIA:
         case KC_ALTR:
         case KC_SHFS:
@@ -47,9 +57,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case KC_SHFE:
         case KC_ALTI:
         case KC_GUIO:
-            return 200;
+        case KC_LSPC:
+            return false;
         default:
-            return TAPPING_TERM;
+            return true;
     }
 }
 
@@ -58,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
         KC_GUIA,    KC_ALTR,    KC_SHFS,    KC_CTRT,    KC_G,       KC_M,       KC_CTRN,    KC_SHFE,    KC_ALTI,    KC_GUIO,
         KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SLSH,
-                                            KC_3TAB,    KC_1SPC,    KC_2ESC,    KC_4ENT
+                                            KC_LTAB,    KC_LSPC,    KC_LESC,    KC_LENT
     ),
 
     [_NAV] = LAYOUT_split_3x5_2(
@@ -79,14 +90,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_COMM,    KC_COLN,    KC_SCLN,    KC_DQUO,
         KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    KC_NO,      KC_NO,      KC_LPRN,    KC_LCBR,    KC_LBRC,    KC_LT,
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_RPRN,    KC_RCBR,    KC_RBRC,    KC_GT,
-                                            KC_NO,      KC_NO,      KC_NO,      KC_5MO
+                                            KC_NO,      KC_NO,      KC_NO,      KC_FUNC
     ),
 
     [_SYM] = LAYOUT_split_3x5_2(
         KC_UNDS,    KC_BSLS,    KC_PIPE,    KC_AMPR,    KC_EQL,     KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
         KC_TILD,    KC_CIRC,    KC_PERC,    KC_DLR,     KC_ASTR,    KC_NO,      KC_LCTL,    KC_LSFT,    KC_LALT,    KC_LGUI,
         KC_GRV,     KC_HASH,    KC_AT,      KC_EXLM,    KC_SLSH,    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
-                                            KC_5MO,     KC_NO,      KC_NO,      KC_NO
+                                            KC_FUNC,    KC_NO,      KC_NO,      KC_NO
     ),
 
     [_FUNC] = LAYOUT_split_3x5_2(
