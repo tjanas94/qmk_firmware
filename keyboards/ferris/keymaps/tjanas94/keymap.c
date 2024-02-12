@@ -9,7 +9,8 @@ enum layers {
     _NUM,
     _PAR,
     _SYM,
-    _FUNC
+    _FUNC,
+    _ONE_SHOT_HACK
 };
 
 #define KC_GUIA LGUI_T(KC_A)
@@ -24,8 +25,8 @@ enum layers {
 #define KC_ALTD RALT_T(KC_DOT)
 
 #define KC_LSPC LT(_NAV, KC_SPC)
-#define KC_LESC LT(_NUM, KC_ESC)
-#define KC_LTAB LT(_PAR, KC_TAB)
+#define KC_LBSP LT(_NUM, KC_BSPC)
+#define KC_OSFT LT(_ONE_SHOT_HACK, 0)
 #define KC_LENT LT(_SYM, KC_ENT)
 #define KC_FUNC MO(_FUNC)
 
@@ -36,6 +37,7 @@ enum layers {
 #define KC_COPY LCTL(KC_C)
 #define KC_SEL LCTL(KC_A)
 #define KC_PAST LCTL(KC_V)
+#define KC_CTAB LCTL(KC_TAB)
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -64,16 +66,40 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_OSFT:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    set_oneshot_mods(MOD_BIT(KC_LSFT));
+                } else {
+                    clear_oneshot_mods();
+                    layer_on(_PAR);
+                }
+            } else {
+                if (record->tap.count > 0) {
+                    // do nothing for one shot shift
+                } else {
+                    layer_off(_PAR);
+                }
+            }
+
+            return false;
+    }
+
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_2(
         KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
         KC_GUIA,    KC_ALTR,    KC_SHFS,    KC_CTRT,    KC_G,       KC_M,       KC_CTRN,    KC_SHFE,    KC_ALTI,    KC_GUIO,
         KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SLSH,
-                                            KC_LTAB,    KC_LSPC,    KC_LESC,    KC_LENT
+                                            KC_OSFT,    KC_LSPC,    KC_LBSP,    KC_LENT
     ),
 
     [_NAV] = LAYOUT_split_3x5_2(
-        KC_NO,      KC_BACK,    KC_FRWD,    KC_NO,      KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
+        KC_NO,      KC_BACK,    KC_FRWD,    KC_CTAB,    KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
         KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    CW_TOGG,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_INS,
         KC_UNDO,    KC_CUT,     KC_COPY,    KC_SEL,     KC_PAST,    KC_H,       KC_J,       KC_K,       KC_L,       KC_APP,
                                             KC_NO,      KC_NO,      KC_BSPC,    KC_DEL
@@ -90,14 +116,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_COMM,    KC_COLN,    KC_SCLN,    KC_DQUO,
         KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    KC_NO,      KC_NO,      KC_LPRN,    KC_LCBR,    KC_LBRC,    KC_LT,
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_RPRN,    KC_RCBR,    KC_RBRC,    KC_GT,
-                                            KC_NO,      KC_NO,      KC_NO,      KC_FUNC
+                                            KC_NO,      KC_NO,      KC_ESC,     KC_FUNC
     ),
 
     [_SYM] = LAYOUT_split_3x5_2(
         KC_UNDS,    KC_BSLS,    KC_PIPE,    KC_AMPR,    KC_EQL,     KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
         KC_TILD,    KC_CIRC,    KC_PERC,    KC_DLR,     KC_ASTR,    KC_NO,      KC_LCTL,    KC_LSFT,    KC_LALT,    KC_LGUI,
         KC_GRV,     KC_HASH,    KC_AT,      KC_EXLM,    KC_SLSH,    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
-                                            KC_FUNC,    KC_NO,      KC_NO,      KC_NO
+                                            KC_FUNC,    KC_TAB,     KC_NO,      KC_NO
     ),
 
     [_FUNC] = LAYOUT_split_3x5_2(
