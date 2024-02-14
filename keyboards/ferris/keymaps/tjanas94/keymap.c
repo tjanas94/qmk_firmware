@@ -37,7 +37,6 @@ enum layers {
 #define KC_COPY LCTL(KC_C)
 #define KC_SEL LCTL(KC_A)
 #define KC_PAST LCTL(KC_V)
-#define KC_CTAB LCTL(KC_TAB)
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -90,6 +89,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+const uint16_t PROGMEM esc_combo[] = {KC_ALTX, KC_C, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(esc_combo, KC_ESC),
+    COMBO(tab_combo, KC_TAB)
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_2(
         KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
@@ -99,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT_split_3x5_2(
-        KC_NO,      KC_BACK,    KC_FRWD,    KC_CTAB,    KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
+        KC_NO,      KC_BACK,    KC_FRWD,    KC_NO,      KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
         KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    CW_TOGG,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_INS,
         KC_UNDO,    KC_CUT,     KC_COPY,    KC_SEL,     KC_PAST,    KC_H,       KC_J,       KC_K,       KC_L,       KC_APP,
                                             KC_NO,      KC_NO,      KC_BSPC,    KC_DEL
