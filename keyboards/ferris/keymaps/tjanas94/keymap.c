@@ -120,16 +120,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_PAR] = LAYOUT_split_3x5_2(
         KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_COMM,    KC_COLN,    KC_SCLN,    KC_DQUO,
-        KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    KC_NO,      KC_NO,      KC_LPRN,    KC_LCBR,    KC_LBRC,    KC_LT,
-        KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_RPRN,    KC_RCBR,    KC_RBRC,    KC_GT,
-                                            KC_NO,      KC_NO,      KC_ESC,     KC_FUNC
+        KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    KC_NO,      KC_NO,      KC_LPRN,    KC_LCBR,    KC_RCBR,    KC_RPRN,
+        KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_LT,      KC_LBRC,    KC_RBRC,    KC_GT,
+                                            KC_NO,      KC_NO,      KC_NO,      KC_FUNC
     ),
 
     [_SYM] = LAYOUT_split_3x5_2(
         KC_UNDS,    KC_BSLS,    KC_PIPE,    KC_AMPR,    KC_EQL,     KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
         KC_TILD,    KC_CIRC,    KC_PERC,    KC_DLR,     KC_ASTR,    KC_NO,      KC_LCTL,    KC_LSFT,    KC_LALT,    KC_LGUI,
         KC_GRV,     KC_HASH,    KC_AT,      KC_EXLM,    KC_SLSH,    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
-                                            KC_FUNC,    KC_TAB,     KC_NO,      KC_NO
+                                            KC_FUNC,    KC_NO,      KC_NO,      KC_NO
     ),
 
     [_FUNC] = LAYOUT_split_3x5_2(
