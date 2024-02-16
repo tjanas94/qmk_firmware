@@ -66,18 +66,33 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static bool is_double_tap = false;
+    static uint16_t double_tap_timer = 0;
+
+    if (is_double_tap && timer_elapsed(double_tap_timer) > TAPPING_TERM) {
+        is_double_tap = false;
+    }
+
     switch (keycode) {
         case KC_OSFT:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
-                    set_oneshot_mods(MOD_BIT(KC_LSFT));
+                    if (is_double_tap) {
+                        is_double_tap = false;
+                        clear_oneshot_mods();
+                        caps_word_toggle();
+                    } else {
+                        is_double_tap = true;
+                        double_tap_timer = timer_read();
+                        set_oneshot_mods(MOD_BIT(KC_LSFT));
+                    }
                 } else {
                     clear_oneshot_mods();
                     layer_on(_PAR);
                 }
             } else {
                 if (record->tap.count > 0) {
-                    // do nothing for one shot shift
+                    // do nothing for tap release
                 } else {
                     layer_off(_PAR);
                 }
@@ -118,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT_split_3x5_2(
         KC_NO,      KC_BACK,    KC_FRWD,    KC_NO,      KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
-        KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    CW_TOGG,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_INS,
+        KC_LGUI,    KC_LALT,    KC_LSFT,    KC_LCTL,    KC_NO,      KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_INS,
         KC_UNDO,    KC_CUT,     KC_COPY,    KC_SEL,     KC_PAST,    KC_H,       KC_J,       KC_K,       KC_L,       KC_APP,
                                             KC_NO,      KC_NO,      KC_BSPC,    KC_DEL
     ),
