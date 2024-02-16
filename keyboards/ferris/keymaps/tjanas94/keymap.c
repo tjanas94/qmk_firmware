@@ -13,6 +13,11 @@ enum layers {
     _ONE_SHOT_HACK
 };
 
+enum custom_keycodes {
+    FAT_ARROW_MACRO = SAFE_RANGE,
+    ARROW_MACRO
+};
+
 #define KC_GUIA LGUI_T(KC_A)
 #define KC_ALTR LALT_T(KC_R)
 #define KC_SHFS LSFT_T(KC_S)
@@ -73,7 +78,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         is_double_tap = false;
     }
 
+    const uint8_t mods = get_mods();
+    const uint8_t oneshot_mods = get_oneshot_mods();
+
     switch (keycode) {
+        case FAT_ARROW_MACRO:
+            if (record->event.pressed) {
+                if ((mods | oneshot_mods) & MOD_BIT(KC_LSFT)) {
+                    clear_oneshot_mods();
+                    unregister_mods(MOD_MASK_CSAG);
+                    SEND_STRING("<=");
+                    register_mods(mods);
+                } else {
+                    SEND_STRING("=>");
+                }
+            }
+
+            return false;
+
+        case ARROW_MACRO:
+            if (record->event.pressed) {
+                if ((mods | oneshot_mods) & MOD_BIT(KC_LSFT)) {
+                    clear_oneshot_mods();
+                    unregister_mods(MOD_MASK_CSAG);
+                    SEND_STRING("<-");
+                    register_mods(mods);
+                } else {
+                    SEND_STRING("->");
+                }
+            }
+
+            return false;
+
         case KC_OSFT:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
@@ -108,19 +144,25 @@ enum combos {
     ESC_COMBO,
     TAB_COMBO,
     EQL_COMBO,
-    MINS_COMBO
+    MINS_COMBO,
+    FAT_ARROW_COMBO,
+    ARROW_COMBO
 };
 
 const uint16_t PROGMEM esc_combo[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_ALTX, KC_C, COMBO_END};
 const uint16_t PROGMEM mins_combo[] = {KC_COMM, KC_ALTD, COMBO_END};
+const uint16_t PROGMEM fat_arrow_combo[] = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM arrow_combo[] = {KC_U, KC_Y, COMBO_END};
 
 combo_t key_combos[] = {
     [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
     [TAB_COMBO] = COMBO(tab_combo, KC_TAB),
     [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
-    [MINS_COMBO] = COMBO(mins_combo, KC_MINS)
+    [MINS_COMBO] = COMBO(mins_combo, KC_MINS),
+    [FAT_ARROW_COMBO] = COMBO(fat_arrow_combo, FAT_ARROW_MACRO),
+    [ARROW_COMBO] = COMBO(arrow_combo, ARROW_MACRO)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
