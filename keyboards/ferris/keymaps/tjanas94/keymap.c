@@ -89,11 +89,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-const uint16_t PROGMEM esc_combo[] = {KC_ALTX, KC_C, COMBO_END};
+enum combos {
+    ESC_COMBO,
+    TAB_COMBO,
+    EQL_COMBO,
+    MINS_COMBO
+};
+
+const uint16_t PROGMEM esc_combo[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM eql_combo[] = {KC_ALTX, KC_C, COMBO_END};
+const uint16_t PROGMEM mins_combo[] = {KC_COMM, KC_ALTD, COMBO_END};
+
 combo_t key_combos[] = {
-    COMBO(esc_combo, KC_ESC),
-    COMBO(tab_combo, KC_TAB)
+    [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
+    [TAB_COMBO] = COMBO(tab_combo, KC_TAB),
+    [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
+    [MINS_COMBO] = COMBO(mins_combo, KC_MINS)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
