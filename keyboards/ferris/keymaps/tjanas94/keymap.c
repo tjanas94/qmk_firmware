@@ -22,6 +22,8 @@ enum custom_keycodes {
 #define KC_ALTR LALT_T(KC_R)
 #define KC_SHFS LSFT_T(KC_S)
 #define KC_CTRT LCTL_T(KC_T)
+#define KC_HYPG ALL_T(KC_G)
+#define KC_HYPM ALL_T(KC_M)
 #define KC_CTRN RCTL_T(KC_N)
 #define KC_SHFE RSFT_T(KC_E)
 #define KC_ALTI LALT_T(KC_I)
@@ -59,6 +61,8 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case KC_ALTR:
         case KC_SHFS:
         case KC_CTRT:
+        case KC_HYPG:
+        case KC_HYPM:
         case KC_CTRN:
         case KC_SHFE:
         case KC_ALTI:
@@ -168,7 +172,7 @@ combo_t key_combos[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_2(
         KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
-        KC_GUIA,    KC_ALTR,    KC_SHFS,    KC_CTRT,    KC_G,       KC_M,       KC_CTRN,    KC_SHFE,    KC_ALTI,    KC_GUIO,
+        KC_GUIA,    KC_ALTR,    KC_SHFS,    KC_CTRT,    KC_HYPG,    KC_HYPM,    KC_CTRN,    KC_SHFE,    KC_ALTI,    KC_GUIO,
         KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SLSH,
                                             KC_OSFT,    KC_LSPC,    KC_LBSP,    KC_LENT
     ),
