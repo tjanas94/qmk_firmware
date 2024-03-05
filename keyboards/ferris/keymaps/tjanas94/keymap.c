@@ -49,7 +49,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_ALTX:
         case KC_ALTD:
-            return 135;
+            return 150;
         default:
             return TAPPING_TERM;
     }
@@ -150,7 +150,9 @@ enum combos {
     EQL_COMBO,
     MINS_COMBO,
     FAT_ARROW_COMBO,
-    ARROW_COMBO
+    ARROW_COMBO,
+    LBRC_COMBO,
+    RBRC_COMBO
 };
 
 const uint16_t PROGMEM esc_combo[] = {KC_H, KC_COMM, COMBO_END};
@@ -158,7 +160,9 @@ const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_ALTX, KC_C, COMBO_END};
 const uint16_t PROGMEM mins_combo[] = {KC_COMM, KC_ALTD, COMBO_END};
 const uint16_t PROGMEM fat_arrow_combo[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM arrow_combo[] = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM arrow_combo[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM lbrc_combo[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM rbrc_combo[] = {KC_U, KC_Y, COMBO_END};
 
 combo_t key_combos[] = {
     [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
@@ -166,7 +170,9 @@ combo_t key_combos[] = {
     [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
     [MINS_COMBO] = COMBO(mins_combo, KC_MINS),
     [FAT_ARROW_COMBO] = COMBO(fat_arrow_combo, FAT_ARROW_MACRO),
-    [ARROW_COMBO] = COMBO(arrow_combo, ARROW_MACRO)
+    [ARROW_COMBO] = COMBO(arrow_combo, ARROW_MACRO),
+    [LBRC_COMBO] = COMBO(lbrc_combo, KC_LBRC),
+    [RBRC_COMBO] = COMBO(rbrc_combo, KC_RBRC)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
