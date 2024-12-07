@@ -5,6 +5,8 @@
 
 enum layers {
     _BASE,
+    _LEFT_TAP,
+    _RIGHT_TAP,
     _NAV,
     _NUM,
     _PAR,
@@ -13,18 +15,18 @@ enum layers {
     _ONE_SHOT_HACK
 };
 
-#define KC_GUIA LGUI_T(KC_A)
-#define KC_ALTR LALT_T(KC_R)
-#define KC_CTLS LCTL_T(KC_S)
-#define KC_SHFT LSFT_T(KC_T)
-#define KC_HYPG ALL_T(KC_G)
-#define KC_HYPM ALL_T(KC_M)
-#define KC_SFTN RSFT_T(KC_N)
-#define KC_CTLE RCTL_T(KC_E)
-#define KC_ALTI LALT_T(KC_I)
-#define KC_GUIO RGUI_T(KC_O)
-#define KC_ALTX RALT_T(KC_X)
-#define KC_ALTD RALT_T(KC_DOT)
+#define KC_GUIA LT(_RIGHT_TAP, KC_A)
+#define KC_ALTR LT(_RIGHT_TAP, KC_R)
+#define KC_CTLS LT(_RIGHT_TAP, KC_S)
+#define KC_SHFT LT(_RIGHT_TAP, KC_T)
+#define KC_HYPG LT(_RIGHT_TAP, KC_G)
+#define KC_HYPM LT(_LEFT_TAP, KC_M)
+#define KC_SFTN LT(_LEFT_TAP, KC_N)
+#define KC_CTLE LT(_LEFT_TAP, KC_E)
+#define KC_ALTI LT(_LEFT_TAP, KC_I)
+#define KC_GUIO LT(_LEFT_TAP, KC_O)
+#define KC_ALTX LT(_RIGHT_TAP, KC_X)
+#define KC_ALTD LT(_LEFT_TAP, KC_DOT)
 
 #define KC_LSPC LT(_NAV, KC_SPC)
 #define KC_LBSP LT(_NUM, KC_BSPC)
@@ -78,6 +80,108 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
+        case KC_GUIA:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_LGUI));
+                } else {
+                    unregister_mods(MOD_BIT(KC_LGUI));
+                }
+            }
+
+            return true;
+
+        case KC_ALTR:
+        case KC_ALTI:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_LALT));
+                } else {
+                    unregister_mods(MOD_BIT(KC_LALT));
+                }
+            }
+
+            return true;
+
+        case KC_CTLS:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_LCTL));
+                } else {
+                    unregister_mods(MOD_BIT(KC_LCTL));
+                }
+            }
+
+            return true;
+
+        case KC_SHFT:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_LSFT));
+                } else {
+                    unregister_mods(MOD_BIT(KC_LSFT));
+                }
+            }
+
+            return true;
+
+        case KC_HYPG:
+        case KC_HYPM:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT));
+                } else {
+                    unregister_mods(MOD_BIT(KC_LGUI) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LCTL) | MOD_BIT(KC_LSFT));
+                }
+            }
+
+            return true;
+
+        case KC_SFTN:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_RSFT));
+                } else {
+                    unregister_mods(MOD_BIT(KC_RSFT));
+                }
+            }
+
+            return true;
+
+        case KC_CTLE:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_RCTL));
+                } else {
+                    unregister_mods(MOD_BIT(KC_RCTL));
+                }
+            }
+
+            return true;
+
+        case KC_GUIO:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_RGUI));
+                } else {
+                    unregister_mods(MOD_BIT(KC_RGUI));
+                }
+            }
+
+            return true;
+
+        case KC_ALTX:
+        case KC_ALTD:
+            if (record->tap.count == 0) {
+                if (record->event.pressed) {
+                    register_mods(MOD_BIT(KC_RALT));
+                } else {
+                    unregister_mods(MOD_BIT(KC_RALT));
+                }
+            }
+
+            return true;
+
         case KC_OSFT:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
@@ -145,6 +249,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GUIA,    KC_ALTR,    KC_CTLS,    KC_SHFT,    KC_HYPG,    KC_HYPM,    KC_SFTN,    KC_CTLE,    KC_ALTI,    KC_GUIO,
         KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SLSH,
                                             KC_OSFT,    KC_LSPC,    KC_LBSP,    KC_LENT
+    ),
+
+    [_LEFT_TAP] = LAYOUT_split_3x5_2(
+        KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+        KC_A,       KC_R,       KC_S,       KC_T,       KC_G,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+        KC_Z,       KC_X,       KC_C,       KC_D,       KC_V,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+                                            KC_TRNS,    KC_SPC,     KC_TRNS,    KC_TRNS
+    ),
+
+    [_RIGHT_TAP] = LAYOUT_split_3x5_2(
+        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
+        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_M,       KC_N,       KC_E,       KC_I,       KC_O,
+        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_SLSH,
+                                            KC_TRNS,    KC_TRNS,    KC_BSPC,    KC_TRNS
     ),
 
     [_NAV] = LAYOUT_split_3x5_2(
