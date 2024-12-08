@@ -216,7 +216,9 @@ enum combos {
     ESC_COMBO,
     TAB_COMBO,
     EQL_COMBO,
+    TAP_EQL_COMBO,
     MINS_COMBO,
+    TAP_MINS_COMBO,
     LPRN_COMBO,
     RPRN_COMBO,
     LBRC_COMBO,
@@ -226,7 +228,9 @@ enum combos {
 const uint16_t PROGMEM esc_combo[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_ALTX, KC_C, COMBO_END};
+const uint16_t PROGMEM tap_eql_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM mins_combo[] = {KC_COMM, KC_ALTD, COMBO_END};
+const uint16_t PROGMEM tap_mins_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM lprn_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM rprn_combo[] = {KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM lbrc_combo[] = {KC_L, KC_U, COMBO_END};
@@ -236,7 +240,9 @@ combo_t key_combos[] = {
     [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
     [TAB_COMBO] = COMBO(tab_combo, KC_TAB),
     [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
+    [TAP_EQL_COMBO] = COMBO(tap_eql_combo, KC_EQL),
     [MINS_COMBO] = COMBO(mins_combo, KC_MINS),
+    [TAP_MINS_COMBO] = COMBO(tap_mins_combo, KC_MINS),
     [LPRN_COMBO] = COMBO(lprn_combo, KC_LPRN),
     [RPRN_COMBO] = COMBO(rprn_combo, KC_RPRN),
     [LBRC_COMBO] = COMBO(lbrc_combo, KC_LBRC),
