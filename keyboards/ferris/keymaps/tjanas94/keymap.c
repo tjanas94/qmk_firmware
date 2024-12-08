@@ -35,6 +35,7 @@ enum layers {
 #define KC_FUNC MO(_FUNC)
 
 #define KC_BACK LALT(KC_LEFT)
+#define KC_FIND LCTL(KC_F)
 #define KC_FRWD LALT(KC_RGHT)
 #define KC_UNDO LCTL(KC_Z)
 #define KC_CUT  LCTL(KC_X)
@@ -253,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x5_2(
         KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
         KC_GUIA,    KC_ALTR,    KC_CTLS,    KC_SHFT,    KC_HYPG,    KC_HYPM,    KC_SFTN,    KC_CTLE,    KC_ALTI,    KC_GUIO,
-        KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SLSH,
+        KC_Z,       KC_ALTX,    KC_C,       KC_D,       KC_V,       KC_K,       KC_H,       KC_COMM,    KC_ALTD,    KC_SCLN,
                                             KC_OSFT,    KC_LSPC,    KC_LBSP,    KC_LENT
     ),
 
@@ -267,12 +268,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RIGHT_TAP] = LAYOUT_split_3x5_2(
         KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_J,       KC_L,       KC_U,       KC_Y,       KC_QUOT,
         KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_M,       KC_N,       KC_E,       KC_I,       KC_O,
-        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_SLSH,
+        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_SCLN,
                                             KC_TRNS,    KC_TRNS,    KC_BSPC,    KC_TRNS
     ),
 
     [_NAV] = LAYOUT_split_3x5_2(
-        KC_NO,      KC_BACK,    KC_FRWD,    KC_NO,      KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
+        KC_NO,      KC_BACK,    KC_FIND,    KC_FRWD,    KC_NO,      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_CAPS,
         KC_LGUI,    KC_LALT,    KC_LCTL,    KC_LSFT,    KC_NO,      KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_INS,
         KC_UNDO,    KC_CUT,     KC_COPY,    KC_SEL,     KC_PAST,    KC_H,       KC_J,       KC_K,       KC_L,       KC_APP,
                                             KC_NO,      KC_NO,      KC_BSPC,    KC_DEL
